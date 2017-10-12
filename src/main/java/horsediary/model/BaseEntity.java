@@ -1,21 +1,15 @@
 package horsediary.model;
 
-import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.cassandra.mapping.PrimaryKey;
+import org.springframework.data.cassandra.mapping.Table;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.util.UUID;
 
-@MappedSuperclass
+@Table
 public class BaseEntity implements Serializable {
 
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(columnDefinition = "BINARY(16)")
-    @Id
+    @PrimaryKey
     private UUID uuid;
 
     public UUID getUuid() {
