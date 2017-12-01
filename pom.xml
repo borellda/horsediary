@@ -44,19 +44,36 @@
         <thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
         <thymeleaf-layout-dialect.version>2.2.1</thymeleaf-layout-dialect.version>
     </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                    <artifactId>spring-data-releasetrain</artifactId>
+                 <version>Hopper-SR10</version>
+                 <type>pom</type>
+                 <scope>import</scope>
+             </dependency>
+        </dependencies>
+    </dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            </dependency>
 
-    <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-dynamodb</artifactId>
+            <version>1.11.34</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-cassandra</artifactId>
+            <groupId>com.github.derjust</groupId>
+            <artifactId>spring-data-dynamodb</artifactId>
+            <version>4.3.1</version>
         </dependency>
 
         <dependency>
@@ -71,12 +88,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.cassandraunit</groupId>
-            <artifactId>cassandra-unit-spring</artifactId>
-            <version>3.0.0.1</version>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -89,36 +100,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>reserve-cassandra-port</id>
-                        <goals>
-                            <goal>reserve-network-port</goal>
-                        </goals>
-                        <phase>process-resources</phase>
-                        <configuration>
-                            <portNames>
-                                <portName>cassandra.port.native-transport</portName>
-                                <portName>cassandra.port.storage</portName>
-                            </portNames>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <systemPropertyVariables>
-                        <spring.data.cassandra.port>${cassandra.port.native-transport}</spring.data.cassandra.port>
-                        <cassandra.native_transport_port>${cassandra.port.native-transport}</cassandra.native_transport_port>
-                        <cassandra.storage_port>${cassandra.port.storage}</cassandra.storage_port>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
