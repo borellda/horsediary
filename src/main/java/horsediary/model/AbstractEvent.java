@@ -4,7 +4,7 @@ package horsediary.model;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
-@DynamoDBTable(tableName = "AbstractEvent")
+@DynamoDBTable(tableName = "Event")
 public class AbstractEvent extends BaseEntity {
 
  private String title;
