@@ -8,7 +8,9 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "predeploy": "ng build --prod --aot",
+    "deploy": "node ./scripts/deploy.js"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +45,8 @@
     "protractor": "~5.1.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
-    "typescript": "~2.5.3"
+    "typescript": "~2.5.3",
+    "aws-sdk": "^2.48.0",
+    "mime-types": "^2.1.15"
   }
 }
