@@ -1,4 +1,4 @@
-package horsediary.converter;
+package main.java.horsediary.converter;
 
 
 import org.springframework.core.convert.converter.Converter;

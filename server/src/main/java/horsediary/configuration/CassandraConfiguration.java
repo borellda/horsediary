@@ -1,4 +1,4 @@
-package horsediary.configuration;
+package main.java.horsediary.configuration;
 
 import horsediary.converter.DateConverter;
 import horsediary.converter.LocalDateConverter;

@@ -1,4 +1,4 @@
-package horsediary.model;
+package main.java.horsediary.model;
 
 
 import org.springframework.data.cassandra.mapping.Column;

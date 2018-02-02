@@ -1,4 +1,4 @@
-package horsediary.repository;
+package main.java.horsediary.repository;
 
 import horsediary.model.Horse;
 import org.springframework.data.cassandra.repository.CassandraRepository;

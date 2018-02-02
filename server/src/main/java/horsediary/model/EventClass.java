@@ -1,4 +1,4 @@
-package horsediary.model;
+package main.java.horsediary.model;
 
 public enum EventClass {
 

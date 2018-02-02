@@ -1,4 +1,4 @@
-package horsediary.controllers;
+package main.java.horsediary.controllers;
 
 import horsediary.model.AbstractEvent;
 import org.springframework.web.bind.annotation.RequestMapping;
